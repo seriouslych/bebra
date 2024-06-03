@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <title>BEBRA</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/favicon.jpg" type="image/jpeg">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.5.2/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.5.2/core.js"></script>
 </head>
 <body>
-    <div class="title">
-        <div class="content">
-            <h1>BEBRA</h1>
-            <a href="up/info.html" class="below">о сайте</a>
-        </div>
+    <div class="vid_wrap">
+    <video playsinline autoplay muted loop poster="img/back.png">
+        <source src="vid/back_vid.webm" type="video/webm">
+    </video>
     </div>
-    <!-- Add more content here to see the fixed header in effect -->
-    <div style="height: 2000px; padding-top: 120px;">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="scene">
+        <div class="cube">
+            <div class="face front">
+                <a class="link" href="up/info.html">О САЙТЕ</a>
+                <input class="input" type="text" maxlength="20" name="name" id="name" placeholder="Твоё имя...">
+                <button class="glow-on-hover" py-click="your_name">ОК</button>
+                <h1 class="output" id="output"></h1>
+                <audio class="audio" id="player" loop><source src="audio/music.mp3" type="audio/mpeg"></audio>
+                <div class="playpause">
+                    <input type="checkbox" id="playpause" checked="checked" name="check" onchange="playPause()" />
+                    <label for="playpause" tabindex=1></label>
+                    <h1>Воспроизвидение музыки</h1>
+                </div>
+                <script>
+                    function playPause() {
+                        const audio = document.querySelector("#player");
+                        const playpause = document.querySelector("#playpause");
+                    
+                        if (playpause.checked) {
+                            audio.pause();
+                        } else {
+                            audio.play();
+                        }
+                    }
+                </script>
+            </div>
     </div>
+    <script type="py" src="main.py"></script>
 </body>
 </html>
